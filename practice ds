@@ -1,0 +1,46 @@
+add node at beg:
+
+
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node*link;
+};
+struct node *insertatbeg(struct node *head)
+{
+    struct node*ptr=malloc(sizeof(struct node));
+    ptr->data=30;
+    ptr->link=head;
+    head=ptr;
+}
+struct node *display(struct node *p)
+{
+
+    while(p!=NULL)
+    {
+        printf("%d\n",p->data);
+        p=p->link;
+    }
+}
+int main()
+{
+    struct node *head=NULL;
+    struct node *p;
+    struct node *k=malloc(sizeof(struct node));
+    k->data=10;
+    k->link=NULL;
+    head=k;
+    
+    struct node *k1=malloc(sizeof(struct node));
+    k1->data=20;
+    k->link=k1;
+   k1->link=NULL;
+    
+    
+    head=insertatbeg(head);
+    p=head;
+    p=display(p);
+    
+}
